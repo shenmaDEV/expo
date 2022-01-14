@@ -202,4 +202,36 @@ public class DevMenuInternalModule: NSObject, RCTBridgeModule {
 
     resolve(DevMenuInternalModule.defaultScheme)
   }
+  
+  @objc
+  func getBuildInfoAsync(_ resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+    let bridge = manager.appInstance.bridge
+    
+    // TODO - pass manifest values to this method
+    let buildInfo = EXDevMenuBuildInfo.getFor(bridge as! RCTBridge, andManifest: [:] as Any)
+        
+    resolve([
+      "appName": buildInfo["appName"],
+      "appIcon": buildInfo["appIcon"],
+      "appVersion": buildInfo["appVersion"],
+      "runtimeVersion": buildInfo["runtimeVersion"],
+      "sdkVersion": buildInfo["sdkVersion"],
+      "hostUrl": buildInfo["hostUrl"],
+    ])
+  }
+  
+  @objc
+  func getDevSettingsAsync(_ resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+    let bridge = manager.delegate?.appBridge?(forDevMenuManager: self.manager)
+    
+    if let devSettings = bridge?.module(forName: "DevSettings") as? RCTDevSettings {
+      
+      resolve([
+        "isDebuggingRemotely": devSettings.isDebuggingRemotely,
+        "isElementInspectorShown": devSettings.isElementInspectorShown,
+        "isHotLoadingEnabled": devSettings.isHotLoadingEnabled,
+        "isPerfMonitorShown": devSettings.isPerfMonitorShown,
+      ])
+    }
+  }
 }
