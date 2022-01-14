@@ -10,6 +10,7 @@
 
 - Fix bug on iOS where all URL schemes, rather than just `exp`, were replaced with `http`. ([#15796](https://github.com/expo/expo/pull/15796) by [@esamelson](https://github.com/esamelson))
 - Fix detecting import when using double quotes. ([#15898](https://github.com/expo/expo/pull/15898) by [@janicduplessis](https://github.com/janicduplessis))
+- Fix build errors on React Native 0.66 caused by `okio` and `okhttp`. ([#15632](https://github.com/expo/expo/pull/15632) by [@kudo](https://github.com/kudo))
 
 ### 💡 Others
 
