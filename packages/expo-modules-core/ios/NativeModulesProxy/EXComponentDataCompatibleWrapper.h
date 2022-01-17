@@ -5,6 +5,7 @@
 /**
  * A compatible wrapper for `RCTComponentData` which has different designated initializers between different react-native versions.
  * This class unifies the interface to make react-native <= 0.64 backward compatible.
+ * Remove when we drop support for SDK 44
  */
 @interface EXComponentDataCompatibleWrapper : RCTComponentData
 
