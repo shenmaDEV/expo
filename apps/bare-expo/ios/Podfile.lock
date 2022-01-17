@@ -194,9 +194,11 @@ PODS:
     - Yoga
   - expo-dev-menu/SafeAreaView (0.9.0)
   - expo-dev-menu/Tests (0.9.0):
+    - hermes-engine
     - Nimble
     - Quick
     - React-CoreModules
+    - React-hermes
   - expo-dev-menu/UITests (0.9.0):
     - React
     - React-CoreModules
@@ -1325,7 +1327,7 @@ SPEC CHECKSUMS:
   Expo: dcd13c848d84cf058c81b1a4289ac3a7891f61b4
   expo-dev-client: c0116deee06925cb80157dc1773c8e9e2cc8a3e2
   expo-dev-launcher: 72ba55279ff01fce311caed10e2af94c7ea1ad30
-  expo-dev-menu: 5edb61593458973c6a4b4a14548922eb217c71aa
+  expo-dev-menu: c6fd64ec2289a5750361279322a96cbf7cc94cb6
   expo-dev-menu-interface: 8562bfafa19d01531694ab492fc93f598f8c8d7b
   ExpoCellular: f800f765c3dd91205a2b84cd4e3ea132c397cffe
   ExpoHaptics: c62a5fc7bba0184d0165d559fc2b0fc46168ef40

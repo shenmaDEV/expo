@@ -142,6 +142,13 @@ Pod::Spec.new do |s|
     test_spec.dependency 'Quick'
     test_spec.dependency 'Nimble'
     test_spec.dependency 'React-CoreModules'
+
+    podfile_properties = JSON.parse(File.read(File.join(__dir__, '..', '..', 'apps', 'bare-expo', 'ios', 'Podfile.properties.json'))) rescue {}
+    if podfile_properties['expo.jsEngine'] == 'hermes' && rnVersion.to_i >= 65
+      # link hermes for vendored reanimated
+      test_spec.dependency 'React-hermes'
+      test_spec.dependency 'hermes-engine'
+    end
     test_spec.platform = :ios, '12.0'
   end
   
